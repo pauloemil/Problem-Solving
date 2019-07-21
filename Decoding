@@ -1,0 +1,30 @@
+hat = int(input())
+encoded = input()
+if hat == 1 or hat == 2:
+    print(encoded)
+    quit()
+encoded = list(encoded)
+new = [""] * hat
+if hat % 2 == 1:
+    j = int(hat/2)
+    counter = 1
+    for i in range(hat):
+        new[j] = encoded[i]
+        if counter % 2 == 0:
+            j += counter
+        else:
+            j -= counter
+        counter += 1
+else:
+    new = [""] * hat
+    j = int(hat/2)-1
+    counter = 1
+    for i in range(hat):
+        new[j] = encoded[i]
+        if counter % 2 == 0:
+            j -= counter
+        else:
+            j += counter
+        counter += 1
+ 
+print("".join(new), end="")
