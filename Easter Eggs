@@ -1,0 +1,20 @@
+hat = int(input())
+lst = ['R', 'O', 'Y', 'G', 'B', 'I', 'V']
+new = ""
+if hat == 7:
+    print("".join(lst))
+elif hat == 8:
+    print("ROYGRBIV")
+elif hat == 9:
+    print("ROYGROBIV")
+elif hat == 10:
+    print("ROYGROYBIV")
+else:
+    new += "".join(lst) * int(hat / 7)
+    x = 3
+    for i in range(hat % 7):
+        if x > 6:
+            x = 3
+        new += lst[x]
+        x += 1
+    print(new)
