@@ -1,0 +1,43 @@
+    hat = int(input())
+    lst = [int(x) for x in input().split()]
+    slst = set(lst)
+    if len(slst) == 1 or hat == 2:
+        print(hat)
+        quit()
+    waterd = []
+    sortlst = list(slst)
+    sortlst = sorted(sortlst, reverse=True)
+    sortlst.pop()
+    for i in range(hat):
+        #print(i)
+        """
+        if i == hat-1:
+            steps = 1
+        else:
+            steps = 0
+        """
+        steps = 0
+        if lst[i] in sortlst:
+            leftSteps = i
+            rightSteps = hat - i - 1
+            meStep = lst[i]
+            for j in range(leftSteps-1, -1, -1):
+     
+                if lst[j] <= meStep:
+                    steps += 1
+                    meStep = lst[j]
+                else:
+                    break
+                #print("left", j, "step:", steps, "me:", meStep)
+            meStep = lst[i]
+            for j in range(i, i + rightSteps+1):
+     
+                if lst[j] <= meStep:
+                    steps += 1
+                    meStep = lst[j]
+                else:
+                    break
+                #print("right", j, "step:", steps, "me:", meStep)
+            #print("\n")
+            waterd.append(steps)
+    print(max(waterd))#, waterd)
