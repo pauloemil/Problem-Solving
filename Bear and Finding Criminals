@@ -1,0 +1,30 @@
+n, a = map(int, input().split())
+lst = [int(x) for x in input().split()]
+lstind = []
+left = a-1
+right = n-a
+stepl = a-1
+stepr = a-1
+if lst[a-1] == 1:
+    crimes = 1
+else:
+    crimes = 0
+for i in range(n):
+    stepl -= 1
+    stepr += 1
+    lstind.append([stepl, stepr])
+for i in lstind:
+    if i[0] < 0 or i[0] >= n:
+        if i[1] < 0 or i[1] >= n:
+            continue
+        elif lst[i[1]] == 1:
+            crimes += 1
+    elif i[1] < 0 or i[1] >= n:
+        if i[0] < 0 or i[0] >= n:
+            continue
+        elif lst[i[0]] == 1:
+            crimes += 1
+    else:
+        if lst[i[0]] == 1 and lst[i[1]] == 1:
+            crimes += 2
+print(crimes)
