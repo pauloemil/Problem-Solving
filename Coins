@@ -1,0 +1,34 @@
+first = list(input())
+sec = list(input())
+third = list(input())
+ans = []
+if first[1] == "<":
+    first = first[::-1]
+    first[1] = ">"
+if sec[1] == "<":
+    sec = sec[::-1]
+    sec[1] = ">"
+if third[1] == "<":
+    third = third[::-1]
+    third[1] = ">"
+new = [first[0], sec[0], third[0]]
+if new[0] == new[1]:
+    ans.append(new[0])
+    ans.append(new[2])
+elif new[0] == new[2]:
+    ans.append(new[0])
+    ans.append(new[1])
+elif new[1] == new[2]:
+    ans.append(new[1])
+    ans.append(new[0])
+else:
+    print("Impossible")
+    quit()
+if "A" in ans and "B" in ans:
+    ans.append("C")
+elif "A" in ans and "C" in ans:
+    ans.append("B")
+else:
+    ans.append("A")
+ 
+print(("".join(ans))[::-1])
