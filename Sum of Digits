@@ -1,0 +1,12 @@
+spells = 0
+def calc(x):
+    global spells
+    new = 0
+    if len(x) == 1:
+        print(spells)
+    else:
+        for i in x:
+            new += int(i)
+        spells += 1
+        calc(str(new))
+calc(input())
