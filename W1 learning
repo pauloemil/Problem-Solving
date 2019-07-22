@@ -1,0 +1,5 @@
+to round x to the neerist multiple of m
+ => round(x/m)*m
+ 
+ to get number of digits of number x
+  => floor(log10(x)) + 1
