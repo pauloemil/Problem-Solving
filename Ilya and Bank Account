@@ -1,0 +1,12 @@
+hat = int(input())
+if hat >= 0:
+    print(hat)
+else:
+    num = list(str(abs(hat)))
+    l = num[-1]
+    bl = num[-2]
+    if l > bl:
+        num.pop(-1)
+    else:
+        num.pop(-2)
+    print(int("-"+"".join(num)))
