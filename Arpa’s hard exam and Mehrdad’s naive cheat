@@ -1,0 +1,6 @@
+hat = int(input())
+lst = [8,4,2,6]
+if hat == 0:
+    print(1)
+else:
+    print(lst[(hat%4)-1])
