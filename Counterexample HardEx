@@ -1,0 +1,25 @@
+from math import gcd
+from itertools import combinations
+a, b = map(int, input().split())
+def isCoPrime(x, y):
+    if gcd(x, y) == 1:
+        return True
+def isGood(x, y, z):
+    if isCoPrime(x, y) and isCoPrime(y, z) and not isCoPrime(x, z):
+        return True
+perm = list(combinations(list(range(a, b+1)), 2))
+#print(perm)
+if abs(a - b) <= 1:
+    print(-1)
+    quit()
+for j in perm:
+    f = j[0]
+    l = j[1]
+    if abs(j[1] - j[0]) == 1:
+        continue
+    for i in range(f+1, l):
+        #print(f, i , l)
+        if isGood(f, i, l):
+            print(f, i, l)
+            quit()
+print(-1)
