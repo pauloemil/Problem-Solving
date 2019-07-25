@@ -1,0 +1,15 @@
+a, b = map(int, input().split())
+lst = sorted(map(int, input().split()))
+small = min(lst)
+big = max(lst)
+ans = []
+xans = []
+ans.append(abs(small - 0))
+ans. append(abs(big - b))
+lst.append(b)
+for i in range(a):
+    xans.append(abs(lst[i] - lst[i+1])/2)
+ans.append(max(xans))
+#print(lst, ans, xans)
+print(max(ans))
+ 
