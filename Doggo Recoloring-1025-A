@@ -1,0 +1,13 @@
+from collections import Counter
+hat = int(input())
+lst = list(input())
+x = Counter(lst)
+if len(x) == 1:
+    print("Yes")
+    quit()
+else:
+    for i in x.values():
+        if i > 1:
+            print("Yes")
+            quit()
+    print("No")
