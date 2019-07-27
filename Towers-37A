@@ -1,0 +1,5 @@
+from collections import Counter
+hat = int(input())
+lst = map(int, input().split())
+x = Counter(lst)
+print(max(x.values()), len(x))
