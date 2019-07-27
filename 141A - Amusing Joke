@@ -1,0 +1,15 @@
+from collections import Counter
+guest = list(input())
+host = list(input())
+pile = list(input())
+ 
+x = Counter(guest)
+y = Counter(host)
+z = Counter(pile)
+ 
+ 
+if x + y == z:
+    print("YES")
+else:
+    print("NO")
+ 
