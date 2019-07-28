@@ -1,0 +1,15 @@
+from sys import stdin
+#stdin = open("sum.in", 'r')
+hat = stdin.readlines()
+k = int(hat[0].split()[2])
+holes = {int(x) for x in hat[1].split()}
+pos = 1
+for i in range(k):
+    a, b = map(int, hat[i+2].split())
+    if pos in holes:
+        break
+    elif pos == a:
+        pos = b
+    elif pos == b:
+        pos = a
+print(pos)
