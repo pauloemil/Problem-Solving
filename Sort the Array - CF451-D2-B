@@ -1,0 +1,21 @@
+from sys import stdin
+#stdin = open("sum.in", 'r')
+hat = stdin.readlines()
+n = int(hat[0])
+lst = [int(x) for x in hat[1].split()]
+L, R = 0, n-1
+goodlst = sorted(lst)
+if lst == goodlst:
+    print("yes\n1 1")
+else:
+    while lst[L] == goodlst[L]:
+        L += 1
+    while lst[R] == goodlst[R]:
+        R -= 1
+    #print(lst[L:R], lst[L:R+1], goodlst[R:L:-1], goodlst[R:L+1:-1])
+    if lst[L:R] == goodlst[R:L:-1]:
+        print("yes")
+        print(min(L, R)+1, max(L, R)+1)
+    else:
+        print("no")
+
