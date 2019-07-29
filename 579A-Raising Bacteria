@@ -1,0 +1,11 @@
+from sys import stdin
+#stdin = open("sum.in", 'r')
+hat = stdin.readlines()
+x = int(hat[0])
+sol = 0
+while x:
+    if x & 1:
+        sol += 1
+    x //= 2
+print(sol)
+ 
