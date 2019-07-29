@@ -1,0 +1,20 @@
+from sys import stdin
+#stdin = open("sum.in", 'r')
+hat = stdin.readlines()
+n, x = map(int, hat[0].split())
+lst = [int(x) for x in hat[1].split()]
+newlst = []
+lst.sort()
+halfway = int(0.5*n)
+#print(lst)
+houres = 0
+for i in range(n):
+    #print(i)
+    if x != 1:
+        houres += x * lst[i]
+        x -= 1
+    else:
+        houres += lst[i]
+
+print(houres)
+
