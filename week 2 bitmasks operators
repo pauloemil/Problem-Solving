@@ -19,3 +19,13 @@ print "Line 5 - Value of c is ", c
 
 c = a >> 2;       # 15 = 0000 1111
 print "Line 6 - Value of c is ", c
+
+X >> 1	 = 	1001000000 			Equals X/2
+X >> 2	 = 	100100000 			Equals X/4
+X << 1	 =  100100000000		Equals X*2
+X << 2	 =  1001000000000		Equals X*4
+
+(num >> idx-1) & 1 == 1       to get a bit with idx 
+num | (1<<idx-1)              to set bit with idx to 1
+num & ~(1<<idx-1)             to set bit with idx to 0
+num ^ (1<<idx-1)              to flip the bit with idx
