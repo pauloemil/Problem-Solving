@@ -29,3 +29,18 @@ X << 2	 =  1001000000000		Equals X*4
 num | (1<<idx-1)              to set bit with idx to 1
 num & ~(1<<idx-1)             to set bit with idx to 0
 num ^ (1<<idx-1)              to flip the bit with idx
+
+def bitsoncount(x):
+  b=0
+  while(x > 0):
+    x &= x - 1   
+    b+=1
+    return b #number of 1s in number as a counter
+  
+  def lowbit(number):
+    pos = 0
+    while number & 1 != 1:
+        # print(number & 1)
+        pos += 1
+        number >>= 1
+    return pos # to get the index of the first 1 appear
