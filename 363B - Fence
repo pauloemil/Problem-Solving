@@ -1,0 +1,22 @@
+from sys import stdin
+#stdin = open("sum.in", 'r')
+hat = stdin.readlines()
+n, x = map(int, hat[0].split())
+lst = [int(x) for x in hat[1].split()]
+cursor = x
+ans = 10**10
+pos = 0
+itera = sum(lst[0:x])
+for i in range(x, n):
+    if itera < ans:
+        ans = itera
+        pos = i - x
+    #print(itera)
+    itera -= lst[i-x]
+    #print(itera)
+    itera += lst[i]
+    #print(itera, "\n")
+if itera < ans:
+    ans = itera
+    pos = n - x
+print(pos + 1)
