@@ -1,0 +1,24 @@
+from sys import stdin
+#stdin = open("sum.in", 'r')
+hat = stdin.readlines()
+n, m, k = map(int, hat[0].split())
+ans = []
+count = 0
+
+
+def popcount(x):
+    b = 0
+    while x:
+        if x & 1:
+            b += 1
+        x >>= 1
+    return b
+
+
+for i in range(m+1):
+    ans.append(int(hat[1+i]))
+for i in range(m):
+    #print(ans[-1], bin(ans[-1]), )
+    if popcount(ans[-1] ^ ans[i]) <= k:
+        count += 1
+print(count)
