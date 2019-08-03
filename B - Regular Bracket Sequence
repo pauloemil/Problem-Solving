@@ -1,0 +1,13 @@
+from sys import stdin
+#stdin = open("sum.in", 'r')
+hat = stdin.readlines()
+seq = hat[0]
+true = 0
+leftbra = 0
+for i in seq:
+    if i == "(":
+        leftbra += 1
+    elif i == ")" and leftbra > 0:
+        leftbra -= 1
+        true += 2
+print(true)
