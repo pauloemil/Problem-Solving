@@ -1,0 +1,41 @@
+from sys import stdin
+from string import ascii_uppercase
+#stdin = open("sum.in", 'r')
+hat = stdin.readlines()
+words = hat[0].strip()
+myword = list(words)
+substrings = []
+ 
+for i in range(0, len(myword)-25):
+    substrings.append(myword[i:i+26])
+ 
+ 
+def solve(word):
+    lst = []
+    letters = ascii_uppercase
+    for i in range(len(word)):
+        if word[i] != "?":
+            lst.append(word[i])
+    if len(lst) == len(set(lst)):
+        for i in range(len(word)):
+            if word[i] == "?":
+                for j in letters:
+                    if j not in word:
+                        word[i] = j
+        return "".join(word)
+    else:
+        return -1
+ 
+ 
+for i in range(len(substrings)):
+    if solve(substrings[i]) != -1:
+        #print("".join(myword))
+        myword = list("".join(myword[0:i]) + solve(substrings[i]) + "".join(myword[i+26:]))
+        #print(myword)
+        for j in range(len(myword)):
+            if myword[j] == "?":
+                myword[j] = "A"
+        print("".join(myword))
+        quit()
+ 
+print(-1)
