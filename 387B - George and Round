@@ -1,0 +1,19 @@
+from sys import stdin
+from string import ascii_uppercase
+#stdin = open("sum.in", 'r')
+hat = stdin.readlines()
+n, m = map(int, hat[0].split())
+a = sorted([int(x) for x in hat[1].split()])
+b = sorted([int(x) for x in hat[2].split()])
+counter = 0
+for i in range(len(a)):
+    flag = False
+    for j in range(len(b)):
+        if b[j] >= a[i]:
+            b.pop(j)
+            flag = True
+            break
+    if not flag:
+        counter += 1
+
+print(counter)
