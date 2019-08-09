@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+#include <string>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, m, pos = 0, gap;
+    cin >> n >> m;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        string str;
+        cin >> str;
+        int gPos= -1, sPos = -1;
+        for (int j = 0; j < m; j++)
+        {
+            if (str[j] == 'G')
+            {
+                gPos = j;
+            }
+            else if (str[j] == 'S')
+            {
+                sPos = j;
+            }
+            if (gPos != -1 && sPos != -1)
+            {
+                gap = sPos - gPos;
+                if (gap < 0)
+                {
+                    cout << -1 << endl;
+                    return 0;
+                }
+                else
+                {
+                    bool flagFound = false;
+                    for (int k = 0; k < pos+1; k++)
+                    {
+                        if (gap == arr[k])
+                        {
+                            flagFound = true;
+                            break;
+                        }
+                    }
+                    if (!flagFound)
+                    {
+                        arr[pos] = gap;
+                        pos++;
+
+                    }
+
+                }
+            }
+        }
+    }
+    cout << pos << endl;
+
+}
