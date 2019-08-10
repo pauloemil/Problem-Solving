@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int turn;
+    cin >> turn;
+    for (int i = 0; i < turn; i++)
+    {
+        int n, step, total;
+        cin >> n;
+        int arr[n], brr[n];
+        brr[0] = 0;
+        for (int j = 0; j < n; j++)
+        {
+
+            cin >> arr[j];
+            if (j == 0)
+                continue;
+            step = 0;
+            for (int k = 0; k < j; k++)
+            {
+                if (arr[k] <= arr[j])
+                {
+                    step++;
+                }
+            }
+            brr[j] = step;
+        }
+        total = 0;
+        for (int j = 0; j < n; j++)
+        {
+            //cout << brr[j] << " ";
+            total += brr[j];
+        }
+        cout << total << endl;
+    }
+}
