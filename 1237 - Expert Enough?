@@ -1,0 +1,45 @@
+#include <iostream>
+#include <utility>
+#include <array>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; i++)
+    {
+        int d, p, q;
+        cin >> d;
+        pair<string, pair<int, int>> arr[d];
+        for (int i = 0; i < d; i++)
+        {
+            cin >> arr[i].first >> arr[i].second.first >> arr[i].second.second;
+            //cout << endl << arr[i].first << arr[i].second.first << arr[i].second.second << endl;
+        }
+        cin >> q;
+        for (int i = 0; i < q; i++)
+        {
+            cin >> p;
+            int step = 0;
+            string firstfound = "";
+            for (int j = 0; j < d; j++)
+            {
+                if (p >= arr[j].second.first && p <= arr[j].second.second)
+                {
+                    //cout <<endl<<step<<endl;
+                    step++;
+                    firstfound = arr[j].first;
+                }
+            }
+            if (step != 1)
+                cout << "UNDETERMINED" << endl;
+            else
+                cout << firstfound << endl;
+        }
+    if (i<t-1)
+        cout<<endl;
+
+
+    }
+}
