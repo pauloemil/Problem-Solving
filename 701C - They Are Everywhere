@@ -1,0 +1,42 @@
+#include <iostream>
+#include <set>
+#include <map>
+#include <limits>
+using namespace std;
+ 
+int main()
+{
+    int l = 0, r = 0, ans, n;
+    map <int, int> farr;
+    set <int> sets;
+    set < int > totaly;
+ 
+    //cout << "haha";
+    cin >> n;
+    char arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+        totaly.insert(char(arr[i]));
+    }
+ 
+    ans = n;
+ 
+    while (l < n)
+    {
+        while (r < n && totaly.size() > sets.size())
+        {
+            sets.insert(arr[r]);
+            farr[arr[r]]++;
+            r++;
+        }
+        if (sets.size() >= totaly.size())
+        {
+            ans = min(ans, r-l);
+        }
+        if (farr[arr[l]] == 1) sets.erase(arr[l]);
+        farr[arr[l]]--;
+        l++;
+    }
+    cout << ans << endl;
+}
