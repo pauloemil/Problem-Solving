@@ -1,0 +1,37 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    int turns, n, p, sum;
+    cin >> turns;
+    bool got;
+
+    for (int step = 0; step < turns; step++)
+    {
+        got = false;
+        cin >> n;
+        cin >> p;
+        int arr[p];
+        for (int i = 0; i < p; i++)
+            cin >> arr[i];
+        for (int i = 0; i < (1 << p) && !got; i++)
+        {
+            sum = 0;
+            for (int j = 0; j < p; j++)
+            {
+                if (i & (1 << j))
+                    sum += arr[j];
+            }
+            if (sum == n) {
+                got = true;
+                break;
+            }
+        }
+        if (got)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
+    }
+}
